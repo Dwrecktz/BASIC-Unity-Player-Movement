@@ -1,0 +1,14 @@
+using UnityEngine;
+
+public class FollowPlayer : MonoBehaviour
+{
+
+    public Transform player; //Adds transform referance
+
+    public Vector3 offset; // A Vector3 stores 3 floats
+
+    void Update()
+    {
+        transform.position = player.position + offset; //Makes camera follow the position of the player, with an offset.
+    }
+}
