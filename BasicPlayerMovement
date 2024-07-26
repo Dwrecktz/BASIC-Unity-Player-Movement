@@ -1,0 +1,37 @@
+using UnityEngine;
+
+public class BasicPlayerMovement : MonoBehaviour
+{
+    //Referance to the RigidBody
+    public Rigidbody rb;
+    //Variables
+    public float forwardForce = 2000f;
+
+    public float sidewaysForce = 2000f;
+
+
+    //Fixed updated, happens every frame
+    void FixedUpdate()
+    {
+
+        if (Input.GetKey("w")) //If key "ENTERED KEY" is pressed, it adds that force (makes it move)
+        {
+            rb.AddForce(0, 0, forwardForce * Time.deltaTime); //Time.deltaTime makes sure it happens at the sametime everytime, because framerates change.
+        }
+
+        if (Input.GetKey("d"))
+        {
+            rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0);
+        }
+
+        if (Input.GetKey("a"))
+        {
+            rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0);
+        }
+
+        if (Input.GetKey("s"))
+        {
+            rb.AddForce(0, 0, -forwardForce * Time.deltaTime);
+        }
+    }
+}
